@@ -62,9 +62,9 @@
       state: running
       wait: yes
 
-  - name: Pause after VM creates
-    pause:
-      seconds: 40
+#  - name: Pause after VM creates
+#    pause:
+#      seconds: 40
 
 #  - name: Revoke the SSO token
 #    ovirt_auth:
