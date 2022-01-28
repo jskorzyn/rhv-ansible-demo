@@ -1,0 +1,28 @@
+---
+- name: RHV VM Create playbook
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    wait_for_ip: true
+    test_vm:
+      cluster: Default
+      domain: redhat.lab
+      template: 11_jsk-rhel8template
+      memory: 2GiB
+      cores: 2
+      disks:
+        - size: 10GiB
+          name: "{{vm_name}}_data"
+          storage_domain: vmstore
+          interface: virtio
+
+    vms:
+      - name: "{{ vm_name }}"
+        tag: demo_vm
+        profile: "{{ test_vm }}"
+
+  roles:
+    - vm_infra
+  
