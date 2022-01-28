@@ -49,6 +49,7 @@
 
   - name: Add JustCreated tag to the VM
     redhat.rhv.ovirt_tag:
+      auth: "{{ ovirt_auth }}"
       name: just_created
       state: attached
       vms:
