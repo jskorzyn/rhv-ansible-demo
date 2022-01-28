@@ -1,0 +1,67 @@
+---
+- name: Provision VM from template
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+#    username:
+#    url:
+#    password:
+    datacenter: Default
+    cluster: Default
+    vm_memory: 1GiB
+    vm_name: test02
+    description: testvm
+
+  tasks:
+#  - name: Obtain SSO token
+#    ovirt_auth:
+#      url: "{{ url }}"
+#      username: "{{ username }}"
+#      password: "{{ password }}"
+#      insecure: yes
+
+  - name: Create and run RHEL8 VM from template
+    redhat.rhv.ovirt_vm:
+#      auth: "{{ ovirt_auth }}"
+      name: "{{ vm_name }}"
+      template: rhel8vm-template
+      cluster: "{{ cluster }}"
+      memory: "{{vm_memory}}"
+      high_availability: true
+      description: "{{ description }}"
+      state: stopped
+      wait: yes
+
+
+  - name: Create initial snap
+    redhat.rhv.ovirt_snapshot:
+#      auth: "{{ ovirt_auth }}"
+      vm_name: "{{ vm_name }}"
+      wait: yes
+      state: present
+      description: Initial_snap
+
+  - name: Add JustCreated tag to the VM
+    redhat.rhv.ovirt_tag:
+      name: just_created
+      state: attached
+      vms:
+        - "{{ vm_name }}"
+      
+  - name: Start vm
+    redhat.rhv.ovirt_vm:
+#      auth: "{{ ovirt_auth }}"
+      name: "{{ vm_name }}"
+      state: running
+      wait: yes
+
+  - name: Pause after VM creates
+    pause:
+      seconds: 40
+
+#  - name: Revoke the SSO token
+#    ovirt_auth:
+#      state: absent
+#      ovirt_auth: "{{ ovirt_auth }}"
