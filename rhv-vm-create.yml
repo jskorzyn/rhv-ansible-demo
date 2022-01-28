@@ -24,7 +24,7 @@
 
   - name: Create and run RHEL8 VM from template
     redhat.rhv.ovirt_vm:
-#      auth: "{{ ovirt_auth }}"
+      auth: "{{ ovirt_auth }}"
       name: "{{ vm_name }}"
       template: 11_jsk-rhel8template
       cluster: "{{ cluster }}"
@@ -37,7 +37,7 @@
 
   - name: Create initial snap
     redhat.rhv.ovirt_snapshot:
-#      auth: "{{ ovirt_auth }}"
+      auth: "{{ ovirt_auth }}"
       vm_name: "{{ vm_name }}"
       wait: yes
       state: present
@@ -52,7 +52,7 @@
       
   - name: Start vm
     redhat.rhv.ovirt_vm:
-#      auth: "{{ ovirt_auth }}"
+      auth: "{{ ovirt_auth }}"
       name: "{{ vm_name }}"
       state: running
       wait: yes
