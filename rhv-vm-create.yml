@@ -12,11 +12,11 @@
       template: 11_jsk-rhel8template
       memory: "{{ vm_memory }}"
       cores: "{{vm_cpu}}"
-      disks:
-        - size: 10GiB
-          name: "{{vm_name}}_data"
-          storage_domain: vmstore
-          interface: virtio
+#      disks:
+#        - size: 10GiB
+#          name: "{{vm_name}}_data"
+#          storage_domain: vmstore
+#          interface: virtio
 
     vms:
       - name: "{{ vm_name }}"
