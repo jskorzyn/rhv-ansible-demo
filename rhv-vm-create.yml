@@ -26,7 +26,7 @@
     redhat.rhv.ovirt_vm:
 #      auth: "{{ ovirt_auth }}"
       name: "{{ vm_name }}"
-      template: rhel8vm-template
+      template: 11_jsk-rhel8template
       cluster: "{{ cluster }}"
       memory: "{{vm_memory}}"
       high_availability: true
