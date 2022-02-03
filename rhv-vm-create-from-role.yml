@@ -6,6 +6,7 @@
 
   vars:
     wait_for_ip: true
+    vm_infra_create_poll_interval: 30
     test_vm:
       cluster: Default
       datacenter: Default
