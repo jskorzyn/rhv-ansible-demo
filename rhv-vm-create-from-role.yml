@@ -10,6 +10,7 @@
     test_vm:
       cluster: Default
       datacenter: Default
+      state: running
 #      domain: redhat.lab
       template: 11_jsk-rhel8template
       memory: "{{ vm_memory }}"
