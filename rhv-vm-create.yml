@@ -5,14 +5,11 @@
   gather_facts: no
 
   vars:
-#    username:
-#    url:
-#    password:
-    datacenter: Default
-    cluster: Default
-    vm_memory: 1GiB
-    vm_name: test02
-    description: testvm
+    # datacenter: Default
+    # cluster: Default
+    # vm_memory: 1GiB
+    # vm_name: test02
+    # description: testvm
 
   tasks:
   - name: Login to oVirt
@@ -29,12 +26,12 @@
   - name: Create and run RHEL8 VM from template
     redhat.rhv.ovirt_vm:
       auth: "{{ ovirt_auth }}"
-      name: "{{ vm_name }}"
+      name: "{{ vm_name | default('change_me')}}"
       template: 11_jsk-rhel8template
-      cluster: "{{ cluster }}"
-      memory: "{{vm_memory}}"
+      cluster: "{{ cluster | default('Default')}}"
+      memory: "{{vm_memory | default('2GiB')}}"
       high_availability: true
-      description: "{{ description }}"
+      description: "{{ description | default(omit) }}"
       state: stopped
       wait: yes
 
@@ -42,7 +39,7 @@
   - name: Create initial snap
     redhat.rhv.ovirt_snapshot:
       auth: "{{ ovirt_auth }}"
-      vm_name: "{{ vm_name }}"
+      vm_name: "{{ vm_name | default('change_me')}}"
       wait: yes
       state: present
       description: Initial_snap
@@ -53,12 +50,12 @@
       name: just_created
       state: attached
       vms:
-        - "{{ vm_name }}"
+        - "{{ vm_name | default('change_me')}}"
       
   - name: Start vm
     redhat.rhv.ovirt_vm:
       auth: "{{ ovirt_auth }}"
-      name: "{{ vm_name }}"
+      name: "{{ vm_name | default('change_me')}}"
       state: running
       wait: yes
 
