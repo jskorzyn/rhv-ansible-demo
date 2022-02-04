@@ -4,13 +4,6 @@
   connection: local
   gather_facts: no
 
-  vars:
-    # datacenter: Default
-    # cluster: Default
-    # vm_memory: 1GiB
-    # vm_name: test02
-    # description: testvm
-
   tasks:
   - name: Login to oVirt
     redhat.rhv.ovirt_auth:
