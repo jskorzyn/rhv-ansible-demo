@@ -4,7 +4,7 @@
   connection: local
   gather_facts: no
 
-  vars_file: netbox.yml
+  vars_files: netbox.yml
 
 
   tasks:
