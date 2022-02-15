@@ -19,4 +19,4 @@
         memory: "{{ hostvars[item]['config.hardware.memoryMB'] }}"
         disk: "{{ hostvars[item]['summary.config.numVirtualDisks'] }}"
       state: present
-    loop: "{{groups['all']}}"
+    loop: "{{groups['rhel8_64Guest']}}"
