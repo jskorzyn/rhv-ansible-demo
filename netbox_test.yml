@@ -21,8 +21,9 @@
         disk: "{{ hostvars[item]['summary.config.numVirtualDisks'] }}"
       state: present
       validate_certs: no
-    loop:
-      - apvm1 
+    loop: "{{groups['rhel8_64Guest']}}"
+#    loop:
+#     - apvm1 
 #    loop: "{{groups['rhel8_64Guest']}}"
   
   # - name: Update vcpus, memory and disk of an existing virtual machine
