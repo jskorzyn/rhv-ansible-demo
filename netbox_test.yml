@@ -31,4 +31,5 @@
         vcpus: '4'
         memory: '8'
         disk: '2'
+      state: absent
       validate_certs: no
