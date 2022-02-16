@@ -32,5 +32,5 @@
         memory: '8'
         disk: '4'
         comments: "Testowa Maszyna"
-      state: present
+      state: absent
       validate_certs: no
