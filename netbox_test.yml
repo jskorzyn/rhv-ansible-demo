@@ -30,7 +30,7 @@
         cluster: Test
         vcpus: '4'
         memory: '8'
-        disk: '2'
+        disk: '4'
         comments: "Testowa Maszyna"
       state: present
       validate_certs: no
