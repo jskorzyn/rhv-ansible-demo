@@ -31,5 +31,6 @@
         vcpus: '4'
         memory: '8'
         disk: '2'
+        comments: "Testowa Maszyna"
       state: absent
       validate_certs: no
