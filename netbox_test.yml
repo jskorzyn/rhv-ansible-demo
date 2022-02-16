@@ -27,7 +27,7 @@
       netbox_token: "{{netbox_token}}"
       data:
         name: 'Test001'
-        primary_ip4: '10.10.100.10'
+        cluster: Test
         vcpus: '4'
         memory: '8'
         disk: '2'
