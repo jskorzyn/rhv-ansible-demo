@@ -31,3 +31,4 @@
         vcpus: '4'
         memory: '8'
         disk: '2'
+      validate_certs: no
