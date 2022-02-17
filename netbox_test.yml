@@ -20,7 +20,7 @@
         name: "{{ hostvars[item]['summary.config.guestFullName'] }}"
       state: "{{ netbox_state }}"
       validate_certs: no
-    loop: "{{ groups['all'] }}"
+    loop: "{{ groups['rhel8_64Guest'] }}"
 
   - name: Update vcpus, memory and disk of an existing virtual machine
     netbox.netbox.netbox_virtual_machine:
@@ -36,7 +36,7 @@
         platform: "{{ hostvars[item]['summary.config.guestFullName'] }}"
       state: "{{ netbox_state }}"
       validate_certs: no
-    loop: "{{groups['all']}}"
+    loop: "{{groups['rhel8_64Guest']}}"
 
 
   - name: debug output
