@@ -41,7 +41,7 @@
 
   - name: debug output
     debug:
-      var: hostvars['apvm1']['config.hardware.device'][12]
+      var: hostvars['apvm1']['config.hardware.device'][12]['capacityInKB']
 
 
 #    loop:
