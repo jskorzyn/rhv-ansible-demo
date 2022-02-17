@@ -41,7 +41,7 @@
 
   - name: debug output
     debug:
-      var: hostvars
+      var: hostvars.rhrhel8
 
 
 #    loop:
