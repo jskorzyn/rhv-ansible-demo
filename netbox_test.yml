@@ -41,7 +41,7 @@
 
   - name: debug output
     debug:
-      var: hostvars['rhrhel8']['summary.config.guestFullName[12]']
+      var: hostvars['rhrhel8']['summary.config.guestFullName']
 
 
 #    loop:
