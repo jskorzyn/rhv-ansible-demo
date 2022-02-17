@@ -43,11 +43,11 @@
 
   - name: debug output
     debug:
-      var: hostvars['cvcln']['config.hardware.device'][12]['capacityInKB'] / 1048576 | int
+      var: hostvars['apvm1']['config.hardware.device'][12]['capacityInKB'] / 1048576 | int
 
   - name: debug output
     debug:
-      var: hostvars['cvcln']['config.hardware.device']
+      var: hostvars['apvm1']['config.hardware.device'] | length
 
 
 
