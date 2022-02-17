@@ -33,7 +33,7 @@
         vcpus: "{{ hostvars[item]['config.hardware.numCPU'] }}"
         memory: "{{ hostvars[item]['config.hardware.memoryMB'] }}"
         disk: "{{ hostvars[item]['summary.config.numVirtualDisks'] }}"
-        platform: "{{ hostvars[item]['summary.config.guestFullName'] }}"
+#        platform: "{{ hostvars[item]['summary.config.guestFullName'] }}"
       state: "{{ netbox_state }}"
       validate_certs: no
     loop: "{{groups['all']}}"
