@@ -37,6 +37,11 @@
       state: "{{ netbox_state }}"
       validate_certs: no
     loop: "{{groups['all']}}"
+
+
+  - name: debug output
+    debug:
+      var: hostvars['rhrhel8']['summary.config.guestFullName[12]']
 #    loop:
 #     - apvm1 
 #    loop: "{{groups['rhel8_64Guest']}}"
