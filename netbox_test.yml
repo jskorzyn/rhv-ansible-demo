@@ -47,7 +47,7 @@
 
   - name: debug output
     debug:
-      var: hostvars['cvcln']['config.hardware.device']|lenght
+      var: hostvars['cvcln']['config.hardware.device']|length
 
 
 #    loop:
