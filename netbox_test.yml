@@ -8,6 +8,7 @@
   
   vars:
     netbox_state: present
+    vmware_inv_grp: rhel8_64Guest
 
 
   tasks:
@@ -20,7 +21,7 @@
         name: "{{ hostvars[item]['summary.config.guestFullName'] }}"
       state: "{{ netbox_state }}"
       validate_certs: no
-    loop: "{{ groups['all'] }}"
+    loop: "{{ groups[vmware_inv_grp] }}"
 
   - name: Update vcpus, memory and disk of an existing virtual machine
     netbox.netbox.netbox_virtual_machine:
@@ -37,7 +38,7 @@
         comments: "Test Ansible"
       state: "{{ netbox_state }}"
       validate_certs: no
-    loop: "{{groups['all']}}"
+    loop: "{{groups[vmware_inv_grp]}}"
 
 
   - name: debug output
