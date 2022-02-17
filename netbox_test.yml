@@ -21,7 +21,7 @@
         disk: "{{ hostvars[item]['summary.config.numVirtualDisks'] }}"
       state: present
       validate_certs: no
-    loop: "{{groups['rhel8_64Guest']}}"
+    loop: "{{groups['all']}}"
 #    loop:
 #     - apvm1 
 #    loop: "{{groups['rhel8_64Guest']}}"
