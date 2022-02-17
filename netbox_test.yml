@@ -46,9 +46,9 @@
 
   - name: debug output
     debug:
-      var: hostvars['cvcln']['config.hardware.device'][matched]
+      var: hostvars['cvcln']['config.hardware.device']|lenght
 
-      
+
 #    loop:
 #     - apvm1 
 #    loop: "{{groups['rhel8_64Guest']}}"
