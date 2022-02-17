@@ -41,7 +41,7 @@
 
   - name: debug output
     debug:
-      var: hostvars.apvm1.config.hardware.device
+      var: hostvars['apvm1']['config.hardware.device']
 
 
 #    loop:
