@@ -40,11 +40,15 @@
     loop: "{{groups['all']}}"
 
 
-  # - name: debug output
-  #   debug:
-  #     var: hostvars['cvcln']['config.hardware.device'][12]['capacityInKB'] / 1048576 | int
+  - name: debug output
+    debug:
+      var: hostvars['cvcln']['config.hardware.device'][12]['capacityInKB'] / 1048576 | int
 
+  - name: debug output
+    debug:
+      var: hostvars['cvcln']['config.hardware.device'][matched]
 
+      
 #    loop:
 #     - apvm1 
 #    loop: "{{groups['rhel8_64Guest']}}"
