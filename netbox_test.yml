@@ -7,7 +7,7 @@
   vars_files: netbox.yml
   
   vars:
-    netbox_state: present
+    netbox_state: absent
 
 
   tasks:
@@ -20,7 +20,7 @@
         name: "{{ hostvars[item]['summary.config.guestFullName'] }}"
       state: "{{ netbox_state }}"
       validate_certs: no
-    loop: "{{ groups['rhel8_64Guest'] }}"
+    loop: "{{ groups['all'] }}"
 
   - name: Update vcpus, memory and disk of an existing virtual machine
     netbox.netbox.netbox_virtual_machine:
@@ -36,12 +36,12 @@
         platform: "{{ hostvars[item]['summary.config.guestFullName'] }}"
       state: "{{ netbox_state }}"
       validate_certs: no
-    loop: "{{groups['rhel8_64Guest']}}"
+    loop: "{{groups['all']}}"
 
 
-  - name: debug output
-    debug:
-      var: hostvars['cvcln']['config.hardware.device'][12]['capacityInKB'] / 1048576 | int
+  # - name: debug output
+  #   debug:
+  #     var: hostvars['cvcln']['config.hardware.device'][12]['capacityInKB'] / 1048576 | int
 
 
 #    loop:
