@@ -4,7 +4,7 @@
   gather_facts: yes
 
   tasks:
-  - name: Print service facts
+  - name: Print packages facts
     ansible.builtin.package_facts:
 
   - name: Print to log
