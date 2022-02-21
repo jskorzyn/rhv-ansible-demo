@@ -2,9 +2,6 @@
 - name: Gather and display active services
   hosts: all
   gather_facts: yes
-  
-#  vars: 
-#    service_name: "{{fact_service_name}}.service"
 
   tasks:
   - name: Print service facts
