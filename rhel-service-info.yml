@@ -12,5 +12,6 @@
 
   - name: Print to log
     ansible.builtin.debug:
-      var: ansible_facts['services'][service_name + '.service']
+      var: ansible_facts['services'][item + '.service']
+    loop: service_name
 
