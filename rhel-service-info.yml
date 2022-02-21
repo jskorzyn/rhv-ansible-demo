@@ -1,0 +1,14 @@
+---
+- name: Gather and display active services
+  hosts: all
+  gather_facts: yes
+
+  tasks:
+  - name: Print service facts
+    ansible.builtin.debug:
+      var: ansible_facts.services
+
+  - name: Print to log
+    ansible.builtin.debug:
+      vars: ansible_facts.services
+
