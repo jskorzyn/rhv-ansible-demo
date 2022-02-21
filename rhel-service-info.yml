@@ -4,7 +4,7 @@
   gather_facts: yes
   
   vars: 
-    servive_name: "{{fact_service_name}}.service"
+    service_name: "{{fact_service_name}}.service"
 
   tasks:
   - name: Print service facts
