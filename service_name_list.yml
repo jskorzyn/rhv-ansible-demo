@@ -1,0 +1,9 @@
+---
+NetworkManager
+chronyd
+firewalld
+iptables
+nftables
+ntpd
+rsyslog
+sshd
