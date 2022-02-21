@@ -35,7 +35,7 @@
         memory: "{{ hostvars[item]['config.hardware.memoryMB'] }}"
         disk: "{{ hostvars[item]['summary.config.numVirtualDisks'] }}"
         platform: "{{ hostvars[item]['summary.config.guestFullName'] }}"
-        comments: "Test Ansible"
+        comments: "Test Ansible 21.02.2022"
       state: "{{ netbox_state }}"
       validate_certs: no
     loop: "{{groups[vmware_inv_grp]}}"
