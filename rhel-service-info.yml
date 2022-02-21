@@ -10,5 +10,5 @@
 
   - name: Print to log
     ansible.builtin.debug:
-      vars: ansible_facts.services
+      var: ansible_facts.services
 
