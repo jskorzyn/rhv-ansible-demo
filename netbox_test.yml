@@ -8,7 +8,7 @@
   
   vars:
     netbox_state: present
-    vmware_inv_grp: rhel8_64Guest
+    vmware_inv_grp: all
 
 
   tasks:
