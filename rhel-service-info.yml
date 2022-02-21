@@ -12,5 +12,5 @@
 
   - name: Print to log
     ansible.builtin.debug:
-      var: ansible_facts.services.{{ service_name }}
+      var: ansible_facts['services'][service_name]
 
