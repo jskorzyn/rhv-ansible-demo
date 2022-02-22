@@ -12,7 +12,10 @@
 
   - name: Print Selinux status
     debug:
-      msg: "Selinux Status\n State: {{ selinux_status.state }}\n Policy: {{ selinux_status.policy }}"
+      msg: |
+           Selinux Status
+           State: {{ selinux_status.state }}
+           Policy: {{ selinux_status.policy }}
   
   - name: Firewalld Service check and enable
     ansible.builtin.systemd:
@@ -23,7 +26,10 @@
 
   - name: Print Firewalld status
     debug:
-      msg: "Firewalld Status:\n State: {{ firewalld_status.state }}\n Enabled: {{ firewalld_status.enabled }}"
+      msg: |
+           Firewalld Status
+           State: {{ firewalld_status.state }}
+           Enabled: {{ firewalld_status.enabled }}
 
   # - name: tmp mount option noexec check and enforce
   #   ansible.posix.mount:
@@ -43,7 +49,7 @@
       state: present
   
   - name: Check if reboot required
-    command: /root/needs-restarting.py -r
+    command: /bin/needs-restarting -r
     register: reboot_required
     ignore_errors: True
     changed_when: False
