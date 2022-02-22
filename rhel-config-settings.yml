@@ -25,17 +25,17 @@
     debug:
       var: firewalld_status
 
-  - name: tmp mount option noexec check and enforce
-    ansible.posix.mount:
-      path: /tmp
-      state: present
-      opts: noexec
-      fstype: xfs
-    register: tmp_status
+  # - name: tmp mount option noexec check and enforce
+  #   ansible.posix.mount:
+  #     path: /tmp
+  #     state: present
+  #     opts: noexec
+  #     fstype: xfs
+  #   register: tmp_status
 
-  - name: Print tmp mount options
-    debug:
-      var: tmp_status
+  # - name: Print tmp mount options
+  #   debug:
+  #     var: tmp_status
   
   - name: Check if needs-restarting is enabled on system
     ansible.builtin.yum:
