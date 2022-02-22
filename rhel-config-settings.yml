@@ -1,0 +1,44 @@
+---
+- name: Check and enforce RHEL settings
+  hosts: all
+  gather_facts: yes
+
+  tasks:
+  - name: Selinux settings check and deploy
+    ansible.posix.selinux:
+      policy: targeted
+      state: permissive
+  
+  - name: Firewall-cmd Service check and enable
+    ansible.builtin.systemd:
+      name: firewalld
+      state: started
+      enabled: yes
+
+  - name: tmp mount option noexec check and enforce
+    ansible.posix.mount:
+      path: /tmp
+      state: present
+      opts: noexec
+      fstype: xfs
+  
+  - name: Check if needs-restarting is enabled on system
+    ansible.builtin.yum:
+      name: yum-utils
+      state: present
+  
+  - name: Check if reboot required
+    command: /root/needs-restarting.py -r
+    register: reboot_required
+    ignore_errors: True
+    changed_when: False
+    
+  - name: Show message "Reboot"
+    debug:
+      msg: "Reboot Required"
+    when: reboot_required.rc == 1
+
+  - name: Show message "No Reboot" 
+    debug:
+      msg: "Reboot NOT Required"
+    when: reboot_required.rc == o
