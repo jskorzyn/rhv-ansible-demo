@@ -26,6 +26,7 @@
 
   - name: Print Firewalld status
     pause:
+      seconds: 1
       prompt: |
            Firewalld Status
            State: {{ firewalld_status.state }}
