@@ -62,4 +62,4 @@
   - name: Show message "No Reboot" 
     debug:
       msg: "Reboot NOT Required"
-    when: reboot_required.rc == o
+    when: reboot_required.rc == 0
