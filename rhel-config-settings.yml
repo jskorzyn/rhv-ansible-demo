@@ -53,6 +53,7 @@
     register: reboot_required
     ignore_errors: True
     changed_when: False
+    no_log: false
     
   - name: Show message "Reboot"
     debug:
