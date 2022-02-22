@@ -25,8 +25,8 @@
     register: firewalld_status
 
   - name: Print Firewalld status
-    debug:
-      msg: |
+    pause:
+      prompt: |
            Firewalld Status
            State: {{ firewalld_status.state }}
            Enabled: {{ firewalld_status.enabled }}
