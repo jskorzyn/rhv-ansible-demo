@@ -12,7 +12,7 @@
 
   - name: Print Selinux status
     debug:
-      var: selinux_status 
+      msg: "Selinux Status\n State: {{ selinux_status.state }}\n Policy: {{ selinux_status.policy }}"
   
   - name: Firewalld Service check and enable
     ansible.builtin.systemd:
@@ -23,7 +23,7 @@
 
   - name: Print Firewalld status
     debug:
-      var: firewalld_status
+      msg: "Firewalld Status:\n State: {{ firewalld_status.state }}\n Enabled: {{ firewalld_status.enabled }}"
 
   # - name: tmp mount option noexec check and enforce
   #   ansible.posix.mount:
