@@ -8,12 +8,22 @@
     ansible.posix.selinux:
       policy: targeted
       state: permissive
+    register: selinux_status
+
+  - name: Print Selinux status
+    debug:
+      var: selinux_status 
   
-  - name: Firewall-cmd Service check and enable
+  - name: Firewalld Service check and enable
     ansible.builtin.systemd:
       name: firewalld
       state: started
       enabled: yes
+    register: firewalld_status
+
+  - name: Print Firewalld status
+    debug:
+      var: firewalld_status
 
   - name: tmp mount option noexec check and enforce
     ansible.posix.mount:
@@ -21,6 +31,11 @@
       state: present
       opts: noexec
       fstype: xfs
+    register: tmp_status
+
+  - name: Print tmp mount options
+    debug:
+      var: tmp_status
   
   - name: Check if needs-restarting is enabled on system
     ansible.builtin.yum:
