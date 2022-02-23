@@ -36,7 +36,7 @@
         - "==================================="
 
   - name: Check /tmp mount 
-    shell: grep -E -o "^\/tmp" /etc/fstab
+    shell: grep -E -o "^\/tmp" /tmp/test
     register: tmp_check
 
   - name: test
