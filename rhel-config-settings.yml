@@ -27,7 +27,7 @@
   - name: Print Firewalld status
     pause:
       seconds: 1
-      echo: no
+      echo: false
       prompt: |
         ===================================
            Firewalld Status
