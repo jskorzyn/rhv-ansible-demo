@@ -27,15 +27,13 @@
     register: firewalld_status
 
   - name: Print Firewalld status
-    pause:
-      seconds: 1
-      echo: false
-      prompt: |
-        ===================================
-           Firewalld Status
-           State: {{ firewalld_status.state }}
-           Enabled: {{ firewalld_status.enabled }}
-        ===================================
+    debug:
+      msg:
+        - "==================================="
+        - " Firewalld Status "
+        - " State: {{ firewalld_status.state }}"
+        - " Enabled: {{ firewalld_status.enabled }}"
+        - "==================================="
 
   # - name: tmp mount option noexec check and enforce
   #   ansible.posix.mount:
