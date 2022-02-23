@@ -36,7 +36,7 @@
         - "==================================="
 
   - name: Check /tmp mount 
-    asible.builtin.shell: 'grep -E -o "^\/tmp" /etc/fstab'
+    asible.builtin.shell: grep -E -o "^\/tmp" /etc/fstab
     register: tmp_check
 
   - name: test
