@@ -35,6 +35,19 @@
         - " Enabled: {{ firewalld_status.enabled }}"
         - "==================================="
 
+  - name: Check /tmp mount 
+    asible.builtin.shell: 'grep -E -o "^\/tmp" /etc/fstab'
+    register: tmp_check
+
+  - name: test
+    debug:
+      var: tmp_check 
+  
+  # - name: Check /tmp mount options
+  #   ansible.builtin.lineinfile:
+  #     path: /etc/fstab
+  #     regexp: '^\/tmp'
+
   # - name: tmp mount option noexec check and enforce
   #   ansible.posix.mount:
   #     path: /tmp
