@@ -38,6 +38,7 @@
   - name: Check /tmp mount 
     shell: grep "/tmp" /tmp/test | grep "noexec"
     register: tmp_check
+    ignore_errors: yes
 
   - name: test
     debug:
