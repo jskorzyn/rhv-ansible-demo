@@ -13,9 +13,11 @@
   - name: Print Selinux status
     debug:
       msg:
+        - "================================"
         - "Selinux Status"
         - "State: {{ selinux_status.state }}"
         - "Policy: {{ selinux_status.policy }}"
+        - "================================"
   
   - name: Firewalld Service check and enable
     ansible.builtin.systemd:
