@@ -36,7 +36,7 @@
         - "==================================="
 
   - name: Check /tmp mount 
-    shell: grep -E -o "^\/tmp" /tmp/test
+    shell: grep "/tmp" /tmp/test | grep "noexec"
     register: tmp_check
 
   - name: test
