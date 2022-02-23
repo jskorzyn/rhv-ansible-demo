@@ -28,9 +28,11 @@
     pause:
       seconds: 1
       prompt: |
+        ===================================
            Firewalld Status
            State: {{ firewalld_status.state }}
            Enabled: {{ firewalld_status.enabled }}
+        ===================================
 
   # - name: tmp mount option noexec check and enforce
   #   ansible.posix.mount:
