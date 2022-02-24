@@ -1,0 +1,9 @@
+---
+- name: App Install 
+  hosts: all
+
+  roles:
+    - mariadb
+    - nginx
+    - php-fpm
+    - wordpress
