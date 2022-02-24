@@ -57,6 +57,6 @@
       seconds: 40
 
   - name: Revoke the SSO token
-    ovirt_auth:
+    redhat.rhv.ovirt_auth:
       state: absent
       ovirt_auth: "{{ ovirt_auth }}"
