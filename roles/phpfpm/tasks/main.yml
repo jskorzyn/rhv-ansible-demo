@@ -7,10 +7,10 @@
       - php-enchant
       - php-IDNA_Convert
       - php-mbstring
-      - php-mysql
-      - php-PHPMailer
+      - php-mysqlnd
+#      - php-PHPMailer
       - php-process
-      - php-simplepie
+#      - php-simplepie
       - php-xml
     state: present
 
