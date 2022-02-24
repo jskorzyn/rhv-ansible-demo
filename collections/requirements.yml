@@ -3,3 +3,4 @@ collections:
 - name: redhat.rhv
   version: 1.6.2
 - name: netbox.netbox
+- name: community.mysql
