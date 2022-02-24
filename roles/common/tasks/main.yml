@@ -3,3 +3,4 @@
   ansible.builtin.yum:
     name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
     state: present
+    disable_gpg_check: no
