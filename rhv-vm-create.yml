@@ -20,7 +20,7 @@
     redhat.rhv.ovirt_vm:
       auth: "{{ ovirt_auth }}"
       name: "{{ vm_name | default('change_me')}}"
-      template: 11_jsk-rhel8template
+      template: 11_jsk_rhel8template
       cluster: "{{ cluster | default('Default')}}"
       memory: "{{vm_memory | default('2GiB')}}"
       high_availability: true
