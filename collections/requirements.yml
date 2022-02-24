@@ -4,3 +4,4 @@ collections:
   version: 1.6.2
 - name: netbox.netbox
 - name: community.mysql
+- name: ansible.posix

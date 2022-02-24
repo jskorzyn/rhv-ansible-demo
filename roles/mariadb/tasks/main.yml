@@ -12,7 +12,7 @@
     state: installed
 
 - name: Configure SELinux to start mysql on any port
-  seboolean: 
+  ansible.posix.seboolean: 
     name: mysql_connect_any 
     state: true 
     persistent: yes
