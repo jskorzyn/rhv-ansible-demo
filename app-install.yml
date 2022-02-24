@@ -7,5 +7,5 @@
   roles:
     - mariadb
     - nginx
-    - php-fpm
+    - phpfpm
     - wordpress
