@@ -1,4 +1,5 @@
 ---
+all
 NetworkManager
 chronyd
 firewalld
