@@ -54,7 +54,7 @@
 
   - name: Pause after VM creates
     pause:
-      seconds: 40
+      seconds: 30
 
   - name: Revoke the SSO token
     redhat.rhv.ovirt_auth:
