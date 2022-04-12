@@ -43,13 +43,13 @@
 
   - name: debug output
     debug:
-      var: hostvars['apvm1']['config.hardware.device'][12]['capacityInKB'] / 1048576 | int
+      var: hostvars['mssql']['config.hardware.device'][12]['capacityInKB'] / 1048576 | int
 
   - name: debug output
     debug:
-      var: hostvars['apvm1']['config.hardware.device'] | length
+      var: hostvars['mssql']['config.hardware.device'] | length
 
-
+  
 
 #    loop:
 #     - apvm1 
