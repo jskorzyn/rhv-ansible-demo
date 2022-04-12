@@ -47,6 +47,11 @@
 
   - name: debug output
     debug:
+      var: hostvars['mssql']['config.hardware.device'][item]['capacityInKB'] / 1048576 | int
+    loop: "hostvars['mssql']['config.hardware.device'] | length"
+
+  - name: debug output
+    debug:
       var: hostvars['mssql']['config.hardware.device'] | length
 
   
