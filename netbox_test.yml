@@ -49,6 +49,11 @@
     debug:
       var: hostvars['mssql']['config.hardware.device'][item]['capacityInKB'] / 1048576 | int
     loop: "hostvars['mssql']['config.hardware.device'] | length"
+    register: disk_result
+
+  - name: Disk result display
+    debug:
+      var: disk_result
 
   - name: debug output
     debug:
