@@ -5,3 +5,4 @@ config_context: False
 group_by:
   - platforms
   - cluster
+  - tags
