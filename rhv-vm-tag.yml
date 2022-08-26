@@ -17,7 +17,7 @@
     register: loggedin
 
 
-  - name: Add JustCreated tag to the VM
+  - name: Add Production tag to the VM
     redhat.rhv.ovirt_tag:
       auth: "{{ ovirt_auth }}"
       name: production
@@ -25,7 +25,14 @@
       vms:
         - "{{ vm_name | default('change_me')}}"
       
-  
+  - name: ARemove JustCreated tag from VM assignment
+    redhat.rhv.ovirt_tag:
+      auth: "{{ ovirt_auth }}"
+      name: just_created
+      state: absent
+      vms:
+        - "{{ vm_name | default('change_me')}}"  
+        
   - name: Revoke the SSO token
     redhat.rhv.ovirt_auth:
       state: absent
