@@ -1,7 +1,7 @@
 ---
 - name: Download WordPress
   get_url: 
-    url: http://wordpress.org/wordpress-{{ wp_version }}.tar.gz 
+    url: https://wordpress.org/wordpress-{{ wp_version }}.tar.gz 
     dest: /srv/wordpress-{{ wp_version }}.tar.gz
 #           sha256sum="{{ wp_sha256sum }}"
 
