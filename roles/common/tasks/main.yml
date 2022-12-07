@@ -1,6 +1,6 @@
 ---
 - name: Set machine hostname
-  ansible.biltin.hostname:
+  ansible.builtin.hostname:
     name: "{{inventory_hostname}}"
     use: systemd
 
