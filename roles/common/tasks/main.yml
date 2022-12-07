@@ -1,4 +1,14 @@
 ---
+- name: Clear registration settings
+  community.general.redhat_subscription:
+    state: absent
+
+- name: Clear registration settings
+  community.general.redhat_subscription:
+    state: present
+    activationkey: RHEL8
+    org_id: RedHatDemoLab
+
 - name: Install Epel
   ansible.builtin.yum:
     name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
