@@ -6,6 +6,7 @@
 - name: Clear registration settings
   community.general.redhat_subscription:
     state: present
+    force_register: true
     activationkey: RHEL8
     org_id: RedHatDemoLab
 
