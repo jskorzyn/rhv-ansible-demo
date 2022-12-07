@@ -1,4 +1,9 @@
 ---
+- name: Set machine hostname
+  ansible.biltin.hostname:
+    name: "{{inventory_hostname}}"
+    use: systemd
+
 - name: Clear registration settings
   community.general.redhat_subscription:
     state: absent
