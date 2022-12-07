@@ -3,7 +3,7 @@
   community.general.redhat_subscription:
     state: absent
 
-- name: Clear registration settings
+- name: Register to Sattellite with activation key
   community.general.redhat_subscription:
     state: present
     force_register: true
