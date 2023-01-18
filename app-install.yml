@@ -5,7 +5,7 @@
   vars_files: app-install-vars.yml
 
   roles:
-    - mariadb
+    - mariadb-role
     - nginx
     - phpfpm
     - wordpress
