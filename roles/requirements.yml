@@ -1,0 +1,4 @@
+---
+roles:
+  - name: mariadb-role
+    src: https://github.com/jskorzyn/mariadb-role.git
