@@ -2,3 +2,12 @@
 roles:
   - name: mariadb-role
     src: https://github.com/jskorzyn/mariadb-role.git
+
+  - name: nginx-role
+    src: https://github.com/jskorzyn/nginx-role.git
+
+  - name: phpfpm-role
+    src: https://github.com/jskorzyn/phpfpm-role.git
+
+  - name: wordpress-role
+    src: https://github.com/jskorzyn/wordpress-role.git
