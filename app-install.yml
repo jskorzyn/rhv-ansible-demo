@@ -6,6 +6,6 @@
 
   roles:
     - mariadb-role
-    - nginx
-    - phpfpm
-    - wordpress
+    - nginx-role
+    - phpfpm-role
+    - wordpress-role
