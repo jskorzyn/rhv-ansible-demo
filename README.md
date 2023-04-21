@@ -1,4 +1,4 @@
-# RHV Ansible Demo
+# RHV Based Ansible Demo
 
 This repo holds playbooks and role pointers to the following demo scenarios:
 
@@ -21,5 +21,5 @@ rhel-service-info.yml - Gather data about services using AAP Controller Survey
 
 ```ini
 app-vm-prepare.yml - Preparation steps: Satellite server registration, epel repo configuration, host name setting
-app-install.yml - App stack installation using deffied roles
+app-install.yml - App stack installation using deffined roles
 ```
