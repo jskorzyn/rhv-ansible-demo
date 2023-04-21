@@ -1,7 +1,7 @@
 ---
 - name: Set machine hostname
   ansible.builtin.hostname:
-    name: "{{inventory_hostname | default('change_me')}}.redhat.lab"
+    name: "{{ inventory_hostname | default('change_me') }}.redhat.lab"
     use: systemd
 
 - name: Clear registration settings
