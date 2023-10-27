@@ -2,7 +2,7 @@
 collections:
 - name: redhat.rhv
   version: 1.6.2
-- name: community.mysql
+#- name: community.mysql
 #- name: community.general
 #  version: 6.5.0
-- name: ansible.posix
+#- name: ansible.posix
