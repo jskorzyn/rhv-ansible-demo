@@ -2,16 +2,16 @@
 - name: Provision VM from template
   hosts: localhost
   connection: local
-  gather_facts: no
+  gather_facts: false
 
   tasks:
   - name: Login to oVirt
     redhat.rhv.ovirt_auth:
-      url: "{{ engine_url | default(lookup('env','OVIRT_URL')) | default(omit) }}"
-      hostname: "{{ engine_fqdn | default(lookup('env','OVIRT_HOSTNAME')) | default(omit) }}"
-      username: "{{ engine_user | default(lookup('env','OVIRT_USERNAME')) | default(omit) }}"
-      password: "{{ engine_password | default(lookup('env','OVIRT_PASSWORD')) | default(omit) }}"
-      ca_file: "{{ engine_cafile | default(lookup('env','OVIRT_CAFILE')) | default(omit) }}"
+      url: "{{ engine_url | default(lookup('env', 'OVIRT_URL')) | default(omit) }}"
+      hostname: "{{ engine_fqdn | default(lookup('env', 'OVIRT_HOSTNAME')) | default(omit) }}"
+      username: "{{ engine_user | default(lookup('env', 'OVIRT_USERNAME')) | default(omit) }}"
+      password: "{{ engine_password | default(lookup('env', 'OVIRT_PASSWORD')) | default(omit) }}"
+      ca_file: "{{ engine_cafile | default(lookup('env', 'OVIRT_CAFILE')) | default(omit) }}"
       insecure: "{{ engine_insecure | default(true) }}"
     when: ovirt_auth is undefined or not ovirt_auth
     register: loggedin
@@ -19,21 +19,21 @@
   - name: Create and run RHEL8 VM from template
     redhat.rhv.ovirt_vm:
       auth: "{{ ovirt_auth }}"
-      name: "{{ vm_name | default('change_me')}}"
+      name: "{{ vm_name | default('change_me') }}"
       template: 11_jsk_rhel8template
-      cluster: "{{ cluster | default('Default')}}"
-      memory: "{{vm_memory | default('2GiB')}}"
+      cluster: "{{ cluster | default('Default') }}"
+      memory: "{{ vm_memory | default('2GiB') }}"
       high_availability: true
       description: "{{ description | default(omit) }}"
       state: stopped
-      wait: yes
+      wait: true
 
 
   - name: Create initial snap
     redhat.rhv.ovirt_snapshot:
       auth: "{{ ovirt_auth }}"
-      vm_name: "{{ vm_name | default('change_me')}}"
-      wait: yes
+      vm_name: "{{ vm_name | default('change_me') }}"
+      wait: true
       state: present
       description: Initial_snap
 
@@ -43,17 +43,17 @@
       name: just_created
       state: attached
       vms:
-        - "{{ vm_name | default('change_me')}}"
-      
+        - "{{ vm_name | default('change_me') }}"
+
   - name: Start vm
     redhat.rhv.ovirt_vm:
       auth: "{{ ovirt_auth }}"
-      name: "{{ vm_name | default('change_me')}}"
+      name: "{{ vm_name | default('change_me') }}"
       state: running
-      wait: yes
+      wait: true
 
   - name: Pause after VM creates
-    pause:
+    ansible.builtin.pause:
       seconds: 30
 
   - name: Revoke the SSO token
