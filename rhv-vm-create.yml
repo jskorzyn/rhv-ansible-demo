@@ -21,7 +21,7 @@
       auth: "{{ ovirt_auth }}"
       name: "{{ vm_name | default('change_me') }}"
       template: 11_jsk_rhel8template
-      cluster: "{{ cluster | default('Default') }}"
+      cluster: "{{ cluster | default('DemoLab') }}"
       memory: "{{ vm_memory | default('2GiB') }}"
       high_availability: true
       description: "{{ description | default(omit) }}"
