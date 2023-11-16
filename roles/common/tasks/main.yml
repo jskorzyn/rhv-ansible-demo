@@ -12,8 +12,8 @@
   community.general.redhat_subscription:
     state: present
     force_register: true
-    activationkey: RHEL8
-    org_id: RedHatDemoLab
+    activationkey: RHEL8_preprod
+    org_id: DemoLab
 
 - name: Install Epel
   ansible.builtin.yum:
