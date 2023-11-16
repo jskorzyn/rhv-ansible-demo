@@ -4,9 +4,9 @@
     name: "{{ ansible_hostname | default('change_me') }}.jsrh.redhat.lab"
     use: systemd
 
-- name: Clear registration settings
-  community.general.redhat_subscription:
-    state: absent
+# - name: Clear registration settings
+#   community.general.redhat_subscription:
+#     state: absent
 
 - name: Register to Sattellite with activation key
   community.general.redhat_subscription:
