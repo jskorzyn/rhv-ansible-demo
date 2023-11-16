@@ -11,6 +11,7 @@
 - name: Register to Sattellite with activation key
   community.general.redhat_subscription:
     state: present
+    server_hostname: satellite.redhat.lab
     server_insecure: true
     force_register: true
     activationkey: RHEL8_preprod
