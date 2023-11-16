@@ -13,7 +13,7 @@
     state: present
     server_hostname: satellite.redhat.lab
     server_insecure: true
-    force_register: true
+#    force_register: true
     activationkey: RHEL8_preprod
     org_id: DemoLab
 
