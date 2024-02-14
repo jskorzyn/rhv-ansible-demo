@@ -1,5 +1,8 @@
 ---
 roles:
+  - name: common-role
+    src: https://github.com/jskorzyn/common-role.git
+
   - name: mariadb-role
     src: https://github.com/jskorzyn/mariadb-role.git
 
