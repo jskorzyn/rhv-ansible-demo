@@ -11,6 +11,3 @@
     ansible.builtin.debug:
       var: ansible_facts['services'][item + '.service']
     loop: "{{ service_name }}"
-  
-
-  - name: test change
