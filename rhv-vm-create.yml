@@ -36,6 +36,7 @@
       wait: true
       state: present
       description: Initial_snap
+    when: vm_snap_present == "yes"
 
   - name: Add JustCreated tag to the VM
     redhat.rhv.ovirt_tag:
