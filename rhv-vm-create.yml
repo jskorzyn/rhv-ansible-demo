@@ -16,7 +16,7 @@
     when: ovirt_auth is undefined or not ovirt_auth
     register: loggedin
 
-  - name: Create and run RHEL8 VM from template
+  - name: Create and run RHEL VM from template
     redhat.rhv.ovirt_vm:
       auth: "{{ ovirt_auth }}"
       name: "{{ vm_name | default('change_me') }}"
