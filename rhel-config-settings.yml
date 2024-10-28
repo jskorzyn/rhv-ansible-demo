@@ -1,84 +1,84 @@
 ---
 - name: Check and enforce RHEL settings
   hosts: all
-  gather_facts: yes
+  gather_facts: true
 
   tasks:
-  - name: Selinux settings check and deploy
-    ansible.posix.selinux:
-      policy: targeted
-      state: permissive
-    register: selinux_status
+    - name: Selinux settings check and deploy
+      ansible.posix.selinux:
+        policy: targeted
+        state: permissive
+      register: selinux_status
 
-  - name: Print Selinux status
-    debug:
-      msg:
-        - "================================"
-        - "Selinux Status"
-        - "State: {{ selinux_status.state }}"
-        - "Policy: {{ selinux_status.policy }}"
-        - "================================"
-  
-  - name: Firewalld Service check and enable
-    ansible.builtin.systemd:
-      name: firewalld
-      state: started
-      enabled: yes
-    register: firewalld_status
+    - name: Print Selinux status
+      ansible.builtin.debug:
+        msg:
+          - "================================"
+          - "Selinux Status"
+          - "State: {{ selinux_status.state }}"
+          - "Policy: {{ selinux_status.policy }}"
+          - "================================"
 
-  - name: Print Firewalld status
-    debug:
-      msg:
-        - "==================================="
-        - " Firewalld Status "
-        - " State: {{ firewalld_status.state }}"
-        - " Enabled: {{ firewalld_status.enabled }}"
-        - "==================================="
+    - name: Firewalld Service check and enable
+      ansible.builtin.systemd:
+        name: firewalld
+        state: started
+        enabled: true
+      register: firewalld_status
 
-  - name: Check /tmp mount 
-    shell: grep "/tmp" /tmp/test | grep "noexec"
-    register: tmp_check
-    ignore_errors: yes
+    - name: Print Firewalld status
+      ansible.builtin.debug:
+        msg:
+          - "==================================="
+          - " Firewalld Status "
+          - " State: {{ firewalld_status.state }}"
+          - " Enabled: {{ firewalld_status.enabled }}"
+          - "==================================="
 
-  - name: test
-    debug:
-      var: tmp_check 
-  
-  # - name: Check /tmp mount options
-  #   ansible.builtin.lineinfile:
-  #     path: /etc/fstab
-  #     regexp: '^\/tmp'
+    - name: Check /tmp mount
+      ansible.builtin.shell: grep "/tmp" /tmp/test | grep "noexec"
+      register: tmp_check
+      ignore_errors: true
 
-  # - name: tmp mount option noexec check and enforce
-  #   ansible.posix.mount:
-  #     path: /tmp
-  #     state: present
-  #     opts: noexec
-  #     fstype: xfs
-  #   register: tmp_status
+    - name: Test
+      ansible.builtin.debug:
+        var: tmp_check
 
-  # - name: Print tmp mount options
-  #   debug:
-  #     var: tmp_status
-  
-  - name: Check if needs-restarting is enabled on system
-    ansible.builtin.yum:
-      name: yum-utils
-      state: present
-  
-  - name: Check if reboot required
-    command: /bin/needs-restarting -r
-    register: reboot_required
-    ignore_errors: True
-    changed_when: False
-    no_log: true
-    
-  - name: Show message "Reboot"
-    debug:
-      msg: "Reboot Required"
-    when: reboot_required.rc == 1
+    # - name: Check /tmp mount options
+    #   ansible.builtin.lineinfile:
+    #     path: /etc/fstab
+    #     regexp: '^\/tmp'
 
-  - name: Show message "No Reboot" 
-    debug:
-      msg: "Reboot NOT Required"
-    when: reboot_required.rc == 0
+    # - name: tmp mount option noexec check and enforce
+    #   ansible.posix.mount:
+    #     path: /tmp
+    #     state: present
+    #     opts: noexec
+    #     fstype: xfs
+    #   register: tmp_status
+
+    # - name: Print tmp mount options
+    #   debug:
+    #     var: tmp_status
+
+    - name: Check if needs-restarting is enabled on system
+      ansible.builtin.yum:
+        name: yum-utils
+        state: present
+
+    - name: Check if reboot required
+      ansible.builtin.command: /bin/needs-restarting -r
+      register: reboot_required
+      ignore_errors: true
+      changed_when: false
+      no_log: true
+
+    - name: Show message "Reboot"
+      ansible.builtin.debug:
+        msg: "Reboot Required"
+      when: reboot_required.rc == 1
+
+    - name: Show message "No Reboot"
+      ansible.builtin.debug:
+        msg: "Reboot NOT Required"
+      when: reboot_required.rc == 0
